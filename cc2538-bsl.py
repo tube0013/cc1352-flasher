@@ -48,6 +48,7 @@ import struct
 import binascii
 import traceback
 import argparse
+import socket
 
 # version
 __version__ = "2.1"
@@ -209,6 +210,8 @@ class CommandInterface(object):
             self.sp.timeout=1.0               # set the timeout value
 
         self.sp.open()
+        if hasattr(self.sp, '_socket'):
+            self.sp._socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
 
     def invoke_bootloader(self, dtr_active_high=False, inverted=False, sonoff_usb=False):
         # Use the DTR and RTS lines to control bootloader and the !RESET pin.

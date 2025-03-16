@@ -5,6 +5,6 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "cc2538-bsl"
+name = "cc1352-flasher"
 dynamic = ["version", "description", "readme", "requires-python", "license", "authors", "keywords", "classifiers", "dependencies", "optional-dependencies"]
 [tool.setuptools_scm]
